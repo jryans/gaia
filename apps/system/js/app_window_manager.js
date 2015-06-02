@@ -878,6 +878,10 @@
           this.shrinkingUI.stop();
         }
         this.publish('activeappchanged');
+        var event = document.createEvent('CustomEvent');
+        event.initCustomEvent('mozContentEvent', true, true,
+                              { type: 'activeappchanged' });
+        window.dispatchEvent(event);
       }
 
       this.debug('=== Active app now is: ',
